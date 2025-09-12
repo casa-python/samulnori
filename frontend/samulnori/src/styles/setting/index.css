@@ -1,0 +1,5 @@
+/* 설정 관련 스타일들 */
+@import './SettingRouter.css';
+@import './InitialSetupComponent.css';
+@import './ObjectSelectionComponent.css'; 
+@import './CompleteSettingComponent.css';

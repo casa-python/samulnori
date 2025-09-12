@@ -1,0 +1,126 @@
+/* Tailwind CSS v4 */
+@import "tailwindcss";
+
+/* 메인 스타일 파일 */
+@import './styles/common/index.css';
+@import './styles/layout/index.css';
+@import './styles/camera/index.css';
+@import './styles/setting/index.css';
+
+/* SoundWaveBackground 애니메이션 키프레임 */
+@keyframes waveFloat {
+  0%, 100% { 
+    transform: scale(1) translate(0, 0); 
+  }
+  33% { 
+    transform: scale(1.2) translate(120px, 0); 
+  }
+  66% { 
+    transform: scale(1.1) translate(0, 80px); 
+  }
+}
+
+@keyframes geoRotate {
+  from { 
+    transform: rotate(0deg) scale(1); 
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  to { 
+    transform: rotate(360deg) scale(1); 
+  }
+}
+
+/* 애니메이션 성능 최적화 */
+.sound-wave-bg {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+}
+
+.wave-element,
+.geo-element {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  will-change: transform;
+}
+
+/* 기본 스타일 */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0px !important;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  text-align: center;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

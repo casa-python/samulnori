@@ -1,0 +1,182 @@
+.community-home {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: auto;
+}
+
+.home-container {
+  width: 100%;
+  max-width: 700px;
+  min-width: 260px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  padding: 38px 32px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.home-title {
+  font-size: 1.7rem;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #111827;
+}
+
+.home-header {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px; /* 기존 80px에서 줄임 */
+  margin-bottom: 24px;
+  z-index: 1;
+}
+
+.search-form {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  font-size: 1rem;
+  background-color: #e5e7eb;
+  font-family: "Pretendard", sans-serif;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+  color: #111827;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+}
+
+.search-button {
+  width: 100%;
+  padding: 12px;
+  background: #38bdf8;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button:hover {
+  background: #0ea5e9;
+}
+
+.search-results {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.search-results-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+  font-family: "Pretendard", sans-serif;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.user-item:hover {
+  border-color: #38bdf8;
+  background: #f8fafc;
+}
+
+.user-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  border: 2px solid #38bdf8;
+}
+
+.user-nickname {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #111827;
+  font-family: "Pretendard", sans-serif;
+}
+
+.loading {
+  color: #6b7280;
+  text-align: center;
+  padding: 20px;
+  font-family: "Pretendard", sans-serif;
+}
+
+.upload-button {
+  width: 100%;
+  padding: 12px;
+  background: #38bdf8;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-button:hover {
+  background: #0ea5e9;
+}
+
+.video-section {
+  margin-bottom: 36px;
+}
+
+.video-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #22223b;
+  margin-bottom: 12px;
+  font-family: "Pretendard", sans-serif;
+}

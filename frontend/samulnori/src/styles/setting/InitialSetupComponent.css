@@ -1,0 +1,224 @@
+/* InitialSetupComponent.css */
+.initial-setup-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: #111827;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+/* 헤더 */
+.setup-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  min-height: 60px;
+  background: #F9FAFB;
+}
+
+.setup-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Pretendard', sans-serif;
+  color: #111827;
+  flex-shrink: 0;
+}
+
+.connection-status-container {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.connection-status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.connection-status.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.connection-status.warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* 스크롤 가능한 콘텐츠 */
+.setup-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  min-height: 0;
+  margin-bottom: 20px;
+}
+
+/* 상태 블록 */
+.status-display {
+  background: #F9FAFB;
+  border-radius: 12px;
+  border: 1px solid #E0E0E0;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+}
+
+.status-display h4 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
+}
+
+.status-item .status-label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-item .status-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-item.success {
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.status-item.fail {
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* 에러 메시지 */
+.error-message {
+  color: #DC2626;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(220, 38, 38, 0.08);
+  border-radius: 6px;
+  border-left: 3px solid #DC2626;
+}
+
+/* 안내 섹션 */
+.setup-instruction {
+  text-align: center;
+  margin: 15px 0;
+  padding: 16px;
+  background: #F9FAFB;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+}
+
+.setup-message {
+  color: #6B7280;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.success-message {
+  color: #16a34a;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+/* 재시도 버튼 */
+.retry-btn {
+  background: #38BDF8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.retry-btn:hover {
+  background: #0ea5e9;
+}
+
+.retry-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 하단 버튼 영역 */
+.next-button-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  flex-shrink: 0;
+  margin-bottom: 0px !important;
+}
+
+.setup-btn {
+  background: #38BDF8;
+  color: white !important;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Pretendard', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 220px;
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3);
+}
+
+.setup-btn:hover:not(:disabled) {
+  background: #0EA5E9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+}
+
+.setup-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3);
+}
+
+.setup-btn:disabled {
+  background: #9CA3AF;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.6;
+} 

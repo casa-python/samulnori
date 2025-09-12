@@ -1,0 +1,29 @@
+.community-bg {
+  background: #f9fafb !important;
+}
+.community-page {
+  width: 100%;
+  height: 100%;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 56px;
+}
+.community-title {
+  color: #111827;
+  font-size: 2.5rem;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+}
+.community-bg .header,
+.community-bg .logo,
+.community-bg .logo-version,
+.community-bg .header-right,
+.community-bg .community-label,
+.community-bg .login-menu {
+  color: #111827 !important;
+}
+.community-bg .header {
+  background: #f9fafb !important;
+}

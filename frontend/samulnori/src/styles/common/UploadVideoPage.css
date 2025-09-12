@@ -1,0 +1,236 @@
+/* 화면 전체(헤더 높이 반영 필요 없으면 그대로 100%) */
+.upload-video-container {
+  background-color: #000;
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  /* padding: 0 14rem; */
+  padding-top: 3rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* 페이지 스크롤 방지 */
+}
+
+.upload-video-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  width: 1100px;
+  margin: 0 auto 1.5rem auto;
+  font-weight: 600;
+}
+
+.upload-form {
+  display: grid;
+  width: 1100px; /* ← 고정폭 */
+  min-width: 1100px;
+  max-width: 1100px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:
+    "title          videoTitle"
+    "description    preview"
+    "thumbnail      preview"
+    "thumbnailBtn   actions";
+  gap: 1.25rem 2rem;
+  height: 600px;
+  margin: 0 auto;
+  justify-items: stretch;
+  align-items: start;
+  overflow: hidden;
+  padding-top: 1rem;
+}
+
+/* ★ 1fr 트랙(3행)이 수축 가능하도록: 기본 min-height:auto를 0으로 재설정 */
+.upload-form > * {
+  min-height: 0;
+  min-width: 0; /* 긴 파일명/텍스트로 넘침 방지 */
+}
+
+/* 라벨: 글씨 아래 입력박스 */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* 영역 매핑 */
+.form-left-title {
+  grid-area: title;
+}
+.form-right-title {
+  grid-area: videoTitle;
+}
+.form-left-description {
+  grid-area: description;
+}
+
+/* 2행 오른쪽: 미리보기 컨테이너 */
+.form-right-preview {
+  grid-area: preview;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 내부 넘침 방지 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-left-thumbnail {
+  grid-area: thumbnail;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-left-thumbnail-btn {
+  grid-area: thumbnailBtn;
+  display: flex;
+  gap: 0.75rem;
+  align-self: end; /* 셀 하단으로 */
+  justify-self: start;
+  padding-bottom: 0; /* 혹시 내부 여백이 있다면 제거 */
+  margin-bottom: 0; /* 혹시 마진이 있다면 제거 */
+}
+
+.form-right-actions {
+  grid-area: actions;
+  display: flex;
+  gap: 0.75rem;
+  align-self: end; /* 셀 하단으로 */
+  justify-self: start;
+  padding-bottom: 0; /* 혹시 내부 여백이 있다면 제거 */
+  margin-bottom: 0; /* 혹시 마진이 있다면 제거 */
+}
+
+/* 입력 공통 (높이 과하게 커지지 않도록 살짝 제한) */
+input[type="text"] {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px; /* 1행 높이 안정화 */
+}
+
+textarea {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 110px; /* 2행 높이 제어 */
+  max-height: 140px;
+  resize: vertical; /* 필요 시 줄이기 가능 */
+}
+
+/* 드롭존 (1행 오른쪽) */
+.dropzone {
+  background: #0b1220;
+  border: 2px dashed rgba(45, 140, 255, 0.4);
+  border-radius: 10px;
+  padding: 0.85rem 1rem; /* 높이 과다 방지 */
+  text-align: center;
+  color: #cdd6f4;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 64px; /* 1행 높이 제어 */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+}
+.dropzone:hover {
+  background: #1b2c46;
+}
+.dropzone.has-file {
+  border-style: solid;
+}
+
+/* 영상 미리보기 (2행 오른쪽) */
+.preview-video {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+/* 영상이 없을 때의 자리 표시자 */
+.preview-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(45, 140, 255, 0.35);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8aa4d6;
+  font-weight: 600;
+}
+
+/* 썸네일 라벨/버튼/미리보기 (3행 왼쪽) */
+label {
+  font-weight: 600;
+}
+
+.set-thumbnail-btn {
+  all: unset;
+  background: #2472d2;
+  border: 1px solid rgba(45, 140, 255, 0.5);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  width: fit-content;
+}
+.set-thumbnail-btn:hover {
+  background: #1b2c46;
+}
+
+.thumb-preview,
+.thumb-placeholder {
+  width: 220px;
+  height: 124px; /* 16:9 */
+  border-radius: 6px;
+}
+
+.thumb-preview {
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 썸네일이 없을 때 자리 표시자 */
+.thumb-placeholder {
+  border: 2px dashed rgba(45, 140, 255, 0.35);
+  color: #8aa4d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 업로드 버튼 (썸네일 버튼과 비슷한 크기) */
+.upload-button {
+  background-color: #2d8cff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: fit-content;
+  height: auto;
+  margin: 0; /* 외부 여백 제거 */
+}
+.upload-button:hover {
+  background-color: #1b6cd8;
+}
+.upload-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}

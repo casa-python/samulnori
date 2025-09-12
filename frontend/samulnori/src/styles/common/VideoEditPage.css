@@ -1,0 +1,231 @@
+/* 화면 전체 */
+.edit-video-container {
+  background-color: #000;
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  /* padding: 0 14rem; */
+  width: 100%;
+  height: 100%;
+  padding-top: 3rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.edit-video-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  width: 1100px;
+  margin: 0 auto 1.5rem auto;
+  font-weight: 600;
+}
+
+/* 폼: 업로드 페이지와 동일한 고정폭/레이아웃 */
+.edit-form {
+  display: grid;
+  width: 1100px;
+  min-width: 1100px;
+  max-width: 1100px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:
+    "title          videoTitle"
+    "description    preview"
+    "thumbnail      preview"
+    "thumbnailBtn   actions";
+  gap: 1.25rem 2rem;
+  height: 600px;
+  margin: 0 auto;
+  justify-items: stretch;
+  align-items: start;
+  overflow: hidden;
+  padding-top: 1rem;
+}
+
+/* 그리드 아이템 수축 허용 */
+.edit-form > * {
+  min-height: 0;
+  min-width: 0;
+}
+
+/* 라벨 */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* 영역 매핑 */
+.form-left-title {
+  grid-area: title;
+}
+.form-right-title {
+  grid-area: videoTitle;
+}
+.form-left-description {
+  grid-area: description;
+}
+
+/* 미리보기 컨테이너(2~3행 병합) */
+.form-right-preview {
+  grid-area: preview;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 영상 엘리먼트 / 자리표시자 */
+.preview-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.preview-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(45, 140, 255, 0.35);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8aa4d6;
+  font-weight: 600;
+}
+
+/* 썸네일 측 */
+.form-left-thumbnail {
+  grid-area: thumbnail;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* 썸네일 라벨/버튼/미리보기 (3행 왼쪽) */
+label {
+  font-weight: 600;
+}
+
+.thumb-preview,
+.thumb-placeholder {
+  width: 220px;
+  height: 124px; /* 16:9 */
+  border-radius: 6px;
+}
+.thumb-preview {
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.thumb-placeholder {
+  border: 2px dashed rgba(45, 140, 255, 0.35);
+  color: #8aa4d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 4행 좌/우 버튼 줄 */
+.form-left-thumbnail-btn {
+  grid-area: thumbnailBtn;
+  display: flex;
+  align-items: end;
+}
+.form-right-actions {
+  grid-area: actions;
+  display: flex;
+  align-items: end;
+  justify-self: start;
+}
+
+/* 입력 공통 */
+input[type="text"] {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+}
+textarea {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+  min-height: 110px;
+  max-height: 140px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* 드롭존 (1행 오른쪽) */
+.dropzone {
+  background: #0b1220;
+  border: 2px dashed rgba(45, 140, 255, 0.4);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  color: #cdd6f4;
+  cursor: pointer;
+  width: 100%;
+  max-height: 64px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+}
+.dropzone:hover {
+  background: #1b2c46;
+}
+.dropzone.has-file {
+  border-style: solid;
+}
+
+/* 버튼들 (업로드 페이지와 통일감) */
+.set-thumbnail-btn {
+  all: unset;
+  background: #2472d2;
+  border: 1px solid rgba(45, 140, 255, 0.5);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  width: fit-content;
+}
+.set-thumbnail-btn:hover {
+  background: #1b2c46;
+}
+
+.edit-save-button {
+  background-color: #2d8cff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: fit-content;
+  height: auto;
+  margin: 0;
+  padding: 10px 12px;
+}
+.edit-save-button:hover {
+  background-color: #1b6cd8;
+}
+.edit-save-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* 로딩 */
+.edit-loading {
+  color: #cdd6f4;
+  padding: 2rem 14rem;
+}

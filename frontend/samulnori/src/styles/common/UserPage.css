@@ -1,0 +1,156 @@
+.user-page {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  background: #F9FAFB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  min-width: 260px;
+  max-width: 95vw;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 38px 32px;
+  overflow: hidden;
+}
+
+.user-profile-section {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.user-profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #38BDF8;
+  background: #fff;
+}
+
+.user-nickname {
+  font-size: 1.7rem;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.user-stats {
+  font-size: 1rem;
+  color: #6B7280;
+  margin-bottom: 24px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.follow-button {
+  width: 100%;
+  padding: 12px;
+  background: #38BDF8;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.follow-button:hover {
+  background: #0EA5E9;
+}
+
+.follow-links {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.follow-link {
+  color: #38BDF8;
+  cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 1rem;
+}
+
+.follow-link:hover {
+  text-decoration: underline;
+}
+
+.follow-list {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.follow-list-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.follow-list-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.follow-list-item {
+  padding: 12px;
+  border-bottom: 1px solid #E5E7EB;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.follow-list-item:hover {
+  background: #F8FAFC;
+}
+
+.close-button {
+  width: 100%;
+  padding: 12px;
+  background: #6B7280;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button:hover {
+  background: #4B5563;
+}
+
+.future-content {
+  color: #9CA3AF;
+  text-align: center;
+  margin-top: 24px;
+  font-family: 'Pretendard', sans-serif;
+}

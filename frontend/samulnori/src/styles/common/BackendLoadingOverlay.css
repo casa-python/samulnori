@@ -1,0 +1,165 @@
+.backend-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f172a 0%, #111827 50%, #1f2937 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.loading-spinner {
+  width: 12px;
+  height: 12px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top: 3px solid #60a5fa;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-title {
+  color: #e5e7eb;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.loading-description {
+  color: #9ca3af;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
+
+.connection-attempts {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.error-title {
+  color: #ef4444;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.error-description {
+  color: #94a3b8;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.retry-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.retry-button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.retry-button:hover {
+  background: #1d4ed8;
+}
+
+.retry-button:active {
+  transform: translateY(1px);
+}
+
+.auto-retry-note {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  margin: 0;
+  font-style: italic;
+} 
+
+/* 로고 파츠 애니메이션 */
+/* 로고 파츠를 한 줄로 정확히 배치하고, 순차-반복 애니메이션 적용 */
+.logo-stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.logo-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 12px; /* 글자 간 간격 (원본 로고 간격 근사) */
+  transform-origin: center;
+}
+
+/* 각 파츠 공통 스타일 */
+.logo-part {
+  height: clamp(42px, 12vw, 84px);
+  width: auto;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
+  animation: partEnter 900ms cubic-bezier(.2,.8,.2,1) forwards,
+             partLoop 2600ms ease-in-out 1200ms infinite;
+}
+
+@keyframes partEnter {
+  0% { opacity: 0; transform: translateY(14px) scale(0.96); }
+  60% { opacity: 1; transform: translateY(-3px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 반복 떠오름 효과: 엔터 이후에만 미세한 부유감 */
+@keyframes partLoop {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.005); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* 등장 시점 스태거 */
+.part-s   { animation-delay: 0ms,    1200ms; }
+.part-a   { animation-delay: 80ms,   1280ms; }
+.part-m   { animation-delay: 160ms,  1360ms; }
+.part-u   { animation-delay: 240ms,  1440ms; }
+.part-l   { animation-delay: 320ms,  1520ms; }
+.part-n   { animation-delay: 400ms,  1600ms; }
+.part-o   { animation-delay: 480ms,  1680ms; }
+.part-r   { animation-delay: 560ms,  1760ms; }
+.part-i   { animation-delay: 640ms,  1840ms; }
+.part-two { animation-delay: 720ms,  1920ms; }
+.part-dot { animation-delay: 800ms,  2000ms; }
+.part-zero{ animation-delay: 880ms,  2080ms; }

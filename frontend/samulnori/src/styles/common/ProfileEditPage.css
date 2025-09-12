@@ -1,0 +1,176 @@
+.profile-edit {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  background: #F9FAFB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile-edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  min-width: 260px;
+  max-width: 95vw;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 38px 32px;
+  overflow: hidden;
+}
+
+.profile-edit-title {
+  font-size: 1.7rem;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #111827;
+}
+
+.profile-edit-form {
+  width: 100%;
+}
+
+.image-upload-section {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.image-preview-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 16px;
+  position: relative;
+}
+
+.file-input-container {
+  margin-top: 12px;
+}
+
+.file-input {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.file-input-hint {
+  font-size: 0.9rem;
+  color: #6B7280;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #6B7280;
+  margin-bottom: 8px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-family: 'Pretendard', sans-serif;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #38BDF8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+}
+
+.password-section {
+  margin-top: 24px;
+  padding: 16px;
+  background: #F8FAFC;
+  border-radius: 7px;
+}
+
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toggle-password-button {
+  padding: 6px 12px;
+  background: #38BDF8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle-password-button:hover {
+  background: #0EA5E9;
+}
+
+.social-warning {
+  padding: 12px;
+  background: #FEF3C7;
+  border: 1px solid #FCD34D;
+  border-radius: 7px;
+  color: #92400E;
+  font-size: 0.9rem;
+  font-family: 'Pretendard', sans-serif;
+  margin-bottom: 16px;
+}
+
+.password-fields {
+  margin-top: 16px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.save-button, .cancel-button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.save-button {
+  background: #38BDF8;
+  color: #fff;
+}
+
+.save-button:hover {
+  background: #0EA5E9;
+}
+
+.save-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background: #6B7280;
+  color: #fff;
+}
+
+.cancel-button:hover {
+  background: #4B5563;
+}

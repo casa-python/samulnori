@@ -1,0 +1,90 @@
+/* SettingRouter.css */
+.side-panel {
+  flex: 0 0 auto;
+  width: 340px;
+  min-width: 260px;
+  max-width: 400px;
+  background: #F9FAFB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 컨텐츠를 상단부터 배치하여 잘림 방지 */
+  position: relative;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.04);
+  z-index: 1; /* 변경: 헤더보다 높은 z-index */
+  height: 100%;
+  padding-top: 56px; /* 추가: 헤더 높이만큼 상단 패딩 */
+  box-sizing: border-box; /* 추가: 패딩 포함한 크기 계산 */
+  overflow: hidden; /* 내부 요소가 바깥으로 튀어나오지 않도록 */
+}
+
+.side-panel--closed {
+  pointer-events: none;
+  box-shadow: none;
+  flex: 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.side-toggle-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  line-height: 0;
+  background: transparent;
+  color: #C0C0C0;
+  border: none;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 210; /* 변경: 패널보다 높은 z-index */
+  opacity: 0.85;
+  transition: background 0.18s, color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  outline: none;
+}
+
+.side-toggle-btn.left {
+  left: 0px;
+  opacity: 0;
+}
+
+.side-toggle-btn.right {
+  right: 0px;
+}
+
+.side-toggle-btn:hover {
+  color: #38BDF8 !important;
+  opacity: 1;
+}
+
+.side-logo-container {
+  position: sticky;
+  bottom: 10px;
+  text-align: center;
+}
+
+.side-logo {
+  color: #111827;
+  white-space: nowrap;
+  z-index: 205;
+  scale: 0.5;
+}
+
+.logo-version {
+  color: #111827;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 4px;
+  display: inline-block;
+} 

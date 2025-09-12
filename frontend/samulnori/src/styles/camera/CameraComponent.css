@@ -1,0 +1,265 @@
+.dots-area {
+  flex: 2 1 0%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* 루프 아일랜드가 확장되었을 때 카메라 박스 위치 조정 */
+.dots-area.loop-island-expanded .camera-box {
+  margin-bottom: 450px; /* 루프 아일랜드 높이(400px) + 여유 공간(50px) */
+  margin-top: 0; /* 확장 시에는 위쪽 마진 제거 */
+}
+.camera-box {
+  margin: auto;
+  width: 900px;
+  height: 600px;
+  max-width: 100vw;
+  max-height: 85vh; /* 헤더 공간 확보를 위해 90vh에서 85vh로 축소 */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0; /* 기본적으로 중앙에 위치 */
+  margin-top: -50px; /* 루프 아일랜드 공간을 고려하여 위로 조정 */
+  transition: margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.camera-area--full {
+  width: 100% !important;
+  z-index: 2;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.side-toggle-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  line-height: 0;
+  background: transparent;
+  color: #C0C0C0;
+  border: none;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.85;
+  transition: background 0.18s, color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  outline: none;
+}
+.side-toggle-btn.left {
+  left: 0px;
+}
+.side-toggle-btn.right {
+  right: 0px;
+}
+.side-toggle-btn:hover {
+  color: #38BDF8;
+}
+.dots-area::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* 기본 점 색 제거: 배경만 남기고 점 밝기는 스윕 레이어(::after)로만 표현 */
+  background-color: #111827;
+  border-radius: 12px;
+  z-index: 1;
+  mask-image: radial-gradient(circle, #fff 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, #fff 0%, transparent 100%);
+  position: absolute;
+  left: 0; top: 0;
+}
+.webcam-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  max-height: 600px; /* 헤더 공간 확보를 위해 650px에서 600px로 축소 */
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  object-fit: cover;
+  background: #000;
+  z-index: 2;
+  display: block;
+} 
+
+/* 그라데이션 스윕(점 위로 부드럽게 밝아지는 효과) */
+.dots-area::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 12px;
+  pointer-events: none;
+  /* 원형으로 퍼지는 라디얼 스윕 (중앙→가장자리) */
+  --r: 0%; /* 현재 반지름 */
+  --b: 0%;  /* 링 반폭(밝은 영역 두께) */
+  background: radial-gradient(circle at 50% 50%,
+    rgba(255,255,255,0) calc(var(--r) - var(--b)),
+    rgba(255,255,255,0.28) var(--r),
+    rgba(255,255,255,0) calc(var(--r) + var(--b))
+  );
+  mix-blend-mode: screen;
+  animation: dotsRadialSweep 3s ease-in-out infinite;
+  /* 점 패턴으로 마스킹 (스윕이 점 내부에서만 보임) */
+  -webkit-mask-image: radial-gradient(circle, #ffffff 1.5px, transparent 2.5px);
+  mask-image: radial-gradient(circle, #ffffff 1.5px, transparent 2.5px);
+  -webkit-mask-size: 20px 20px;
+  mask-size: 20px 20px;
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+
+@keyframes dotsRadialSweep {
+  0%   { --r: 0%; --b: 0%; }
+  30%  { --b: 50%; }
+  100%  { --r: 100%; --b: 0%; }
+}
+
+/* 커스텀 프로퍼티 애니메이션을 위한 등록 (지원 브라우저에서 부드러움 향상) */
+@property --r { syntax: '<percentage>'; inherits: false; initial-value: 10%; }
+@property --b { syntax: '<percentage>'; inherits: false; initial-value: 6%; }
+
+/* 초기 상태 복원: 점 패턴 고정, 애니메이션 없음 */
+
+/* 모션 최소화 환경 배려 */
+@media (prefers-reduced-motion: reduce) {
+  .dots-area::before,
+  .dots-area::after { animation: none; }
+}
+
+/* webcam mount/unmount transition */
+.webcam-wrap.animating,
+.webcam-wrap.pending {
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* 점 패턴(::before)보다 위에 렌더링되도록 보장 */
+}
+.webcam-wrap.enter {
+  animation: webcamEnter 240ms cubic-bezier(0.2,0.8,0.2,1) forwards;
+}
+.webcam-wrap.exit {
+  animation: webcamExit 200ms ease forwards;
+}
+@keyframes webcamEnter {
+  0% { opacity: 0; transform: scale(0.985) translateY(4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* HandsOverlay ray effect */
+.hand-ray-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ray-spin 1.2s linear infinite;
+}
+@keyframes ray-spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* 터치 효과 애니메이션 - 자연스러운 크로스페이드 */
+@keyframes touchPulse {
+  0% { 
+    filter: url(#touchGlow) hue-rotate(0deg) saturate(1);
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  16.66% { 
+    filter: url(#touchGlow) hue-rotate(60deg) saturate(1.1);
+    transform: scale(1.005);
+    opacity: 0.95;
+  }
+  33.33% { 
+    filter: url(#touchGlow) hue-rotate(120deg) saturate(1.2);
+    transform: scale(1.01);
+    opacity: 1;
+  }
+  50% { 
+    filter: url(#touchGlow) hue-rotate(180deg) saturate(1.3);
+    transform: scale(1.015);
+    opacity: 1;
+  }
+  66.66% { 
+    filter: url(#touchGlow) hue-rotate(240deg) saturate(1.2);
+    transform: scale(1.01);
+    opacity: 1;
+  }
+  83.33% { 
+    filter: url(#touchGlow) hue-rotate(300deg) saturate(1.1);
+    transform: scale(1.005);
+    opacity: 0.95;
+  }
+  100% { 
+    filter: url(#touchGlow) hue-rotate(360deg) saturate(1);
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes touchRipple {
+  0% { 
+    stroke-width: 12;
+    stroke-opacity: 0.4;
+    transform: scale(1);
+  }
+  25% { 
+    stroke-width: 14;
+    stroke-opacity: 0.3;
+    transform: scale(1.05);
+  }
+  50% { 
+    stroke-width: 16;
+    stroke-opacity: 0.25;
+    transform: scale(1.1);
+  }
+  75% { 
+    stroke-width: 18;
+    stroke-opacity: 0.15;
+    transform: scale(1.15);
+  }
+  100% { 
+    stroke-width: 20;
+    stroke-opacity: 0;
+    transform: scale(1.2);
+  }
+}
+@keyframes webcamExit {
+  0% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.985) translateY(4px); }
+}
+
+/* webcam pending UI */
+.webcam-pending {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #E5E7EB;
+  font-weight: 600;
+  background: transparent;
+  z-index: 2;
+}
+.webcam-pending-spinner {
+  width: 14px;
+  height: 14px;
+  border: 3px solid rgba(255,255,255,0.25);
+  border-top-color: #60A5FA;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+.webcam-pending-text { font-size: 14px; letter-spacing: .2px; }
+@keyframes spin { to { transform: rotate(360deg); } }

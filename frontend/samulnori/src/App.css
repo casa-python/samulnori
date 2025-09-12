@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url("https://use.typekit.net/tor7mck.css");
+
+body, #root, .main-container {
+  height: 100vh;
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  overflow-x: hidden;
+}
+
+.main-layout {
+  background: #111827;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.main-layout.community-bg {
+  background: #F9FAFB;
+}
+.main-content-row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 56px);
+  align-items: center;
+  padding-top: 0;
+}
+.dots-area {
+  flex: 2 1 0%;
+  /* ...기존 스타일... */
+}
+.camera-area--full {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+}
+.side-panel {
+  flex: 1 1 0%;
+  /* ...기존 스타일... */
+}
+
+body.main-noscroll, .main-noscroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+}

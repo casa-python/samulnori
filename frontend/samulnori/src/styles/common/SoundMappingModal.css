@@ -1,0 +1,593 @@
+/* SoundMappingModal 스타일 */
+
+/* 은은한 배경 그라디언트 애니메이션 */
+@keyframes subtleGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 모달 오버레이 페이드인 */
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 모달 컨텐츠 줌인 */
+@keyframes modalZoomIn {
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 닫힘 애니메이션 */
+@keyframes overlayFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes modalZoomOut {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.96); opacity: 0; }
+}
+
+.sound-mapping-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: overlayFadeIn 180ms ease-out both;
+}
+
+.sound-mapping-modal-overlay.closing {
+  animation: overlayFadeOut 160ms ease-in both;
+}
+
+.sound-mapping-modal-content {
+  /* 기본 화이트에 가까운 파스텔 그라디언트 */
+  background: linear-gradient(120deg, #ffffff 0%, #f8fafc 25%, #f0f9ff 50%, #f8fafc 75%, #ffffff 100%);
+  background-size: 240% 240%;
+  animation: modalZoomIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both, subtleGradientShift 28s ease infinite;
+  border-radius: 12px;
+  padding: 0; /* 헤더/본문/푸터로 분리 */
+  width: 92vw; /* 살짝 더 넓게 */
+  max-width: 1480px;
+  height: 92vh; /* 살짝 더 높게 */
+  min-width: 960px;
+  min-height: 600px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 내부 스크롤만 허용 */
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.sound-mapping-modal-content.closing {
+  animation: modalZoomOut 180ms ease-in both;
+}
+
+/* 헤더 */
+.sound-mapping-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  /* 본문과 동일한 은은한 그라디언트 애니메이션 */
+  background: linear-gradient(120deg, #ffffff 0%, #f8fafc 25%, #f0f9ff 50%, #f8fafc 75%, #ffffff 100%);
+  background-size: 240% 240%;
+  animation: subtleGradientShift 28s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: none; /* 밑줄 제거 */
+}
+
+.sound-mapping-header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.sound-mapping-title {
+  margin: 0;
+  text-align: left;
+  padding: 10px 14px;
+  background-color: #ffffff;
+  border: 2px solid #eaeaea;
+  border-radius: 10px;
+  color: black;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.sound-mapping-title h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.sound-mapping-title p {
+  margin: 4px 0 0 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.sound-mapping-title-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sound-mapping-close-button {
+  position: static; /* 헤더 내부 배치 */
+  font-size: 1.6rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #999 !important;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.sound-mapping-close-button:hover {
+  color: #333 !important;
+}
+
+.sound-mapping-save-button {
+  width: 70px;
+  padding: 12px 16px;
+  background: #38BDF8;
+  color: #fff;
+  border: none !important;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+
+.sound-mapping-save-button:hover {
+  background: #0ea5e9;
+  box-shadow: 0 6px 16px rgba(14, 165, 233, 0.28);
+}
+
+/* 상태 바 */
+.sound-mapping-status {
+  padding: 10px 16px;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sound-mapping-status-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #495057;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sound-mapping-status-title span {
+  font-size: 1.2rem;
+}
+
+.sound-mapping-status-content {
+  font-size: 0.95rem;
+  color: #495057;
+  line-height: 1.5;
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  min-height: 40px;
+  display: block;
+  max-height: 25vh;
+  overflow: auto;
+}
+
+/* 상태 바 2열 표 레이아웃 */
+.sound-mapping-status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.sound-mapping-status-grid .status-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sound-mapping-status-grid .status-col-header {
+  font-weight: 700;
+  color: #343a40;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.sound-mapping-status-grid .status-col-rows {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sound-mapping-status-grid .status-row {
+  display: grid;
+  grid-template-columns: 80px 16px 1fr;
+  align-items: center;
+  padding: 6px 8px;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.sound-mapping-status-grid .status-row:last-child {
+  border-bottom: none;
+}
+
+.sound-mapping-status-grid .status-row-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.sound-mapping-status-grid .status-row-sep {
+  text-align: center;
+  color: #adb5bd;
+}
+
+.sound-mapping-status-grid .status-row-value {
+  color: #495057;
+  white-space: nowrap; /* 한 줄 유지 */
+  overflow: hidden;    /* 넘치면 숨김 */
+  text-overflow: ellipsis; /* 말줄임표 */
+}
+
+.sound-mapping-status-grid .status-row-value.mapped {
+  color: #2f9e44;
+  font-weight: 600;
+}
+
+.sound-mapping-status-grid .status-row-value.unmapped {
+  color: #e8590c;
+}
+
+/* 사운드 목록 */
+.sound-mapping-sound-list-title {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.sound-mapping-folder-button {
+  background: #38BDF8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  transition: background-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+
+.sound-mapping-folder-button:hover {
+  background: #0ea5e9;
+  box-shadow: 0 6px 16px rgba(14, 165, 233, 0.28);
+}
+
+.sound-tree-play {
+  background: transparent;
+  color: #38BDF8 !important;
+  border: 1px solid #e6f3ff;
+  border-radius: 8px;
+  padding: 2px;
+  scale: 0.7;
+}
+
+.sound-tree-play:hover {
+  color: #2563eb !important;
+  background-color: #addff5;
+}
+
+.sound-tree-play.playing {
+  color: #ef4444 !important; /* 재생 중일 때 버튼 색상 */
+}
+
+.sound-tree-icon { margin-right: 6px; }
+
+/* 사운드 트리: 행 레이아웃을 그리드로 고정하고, 컨테이너 폭 내에서만 줄맞춤 */
+.sound-tree-row-grid {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 1fr;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0; /* ellipsis 동작을 위해 필요 */
+}
+
+.sound-tree-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sound-tree-toggle {
+  user-select: none;
+}
+
+.sound-tree-volume {
+  width: 90%;
+}
+
+/* 파일 행 오른쪽 액션 영역 간격 */
+.sound-tree-item .sound-tree-play { margin-right: 6px; }
+.sound-tree-item input[type="range"] {
+  width: 100px;
+  accent-color: #38BDF8;
+}
+
+/* 스크롤바 정리 */
+.sound-mapping-sound-list-container::-webkit-scrollbar { width: 10px; }
+.sound-mapping-sound-list-container::-webkit-scrollbar-track { background: #f3f4f6; border-radius: 8px; }
+.sound-mapping-sound-list-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+.sound-mapping-sound-list-container::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.sound-tree-item {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* 메인 컨텐츠 */
+.sound-mapping-main-content {
+  display: grid;
+  grid-template-columns: 42% 1fr; /* 좌측(상태+목록) / 우측(글러브) */
+  gap: 16px;
+  padding: 12px 16px;
+  flex: 1; /* 남은 영역 모두 사용 */
+  overflow: auto; /* 본문 스크롤 */
+}
+
+.sound-mapping-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 360px;
+  min-height: 0; /* 내부 스크롤 허용 */
+}
+
+.sound-mapping-sound-list {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.sound-mapping-sound-list-title {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: -12px -12px 8px -12px;
+  padding: 10px 12px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.sound-mapping-sound-list-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex: 1; /* 컬럼 높이를 꽉 채우고 */
+  overflow: auto; /* 스크롤 */
+  background: #fff;
+  max-height: 38vh;
+}
+
+.sound-mapping-sound-list-content {
+  padding: 6px;
+}
+
+.sound-mapping-sound-list-loading {
+  color: #aaa;
+  text-align: center;
+  padding: 1.2rem;
+}
+
+.sound-mapping-hands-container {
+  min-width: 420px;
+  background: #000;
+  border-radius: 10px;
+  padding: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* 오른쪽 컬럼도 스크롤 허용 */
+}
+
+.sound-mapping-hands-title {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.sound-mapping-hands-image-container {
+  position: relative;
+  width: 100%;
+  flex: 1; /* 남은 세로 공간 모두 사용 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sound-mapping-hands-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sound-mapping-reset-button {
+  top: 8px;
+  right: 8px;
+  background: white;
+  color: #000;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+
+.sound-mapping-reset-button:hover {
+  background: #f75a37;
+  color: white !important;
+}
+
+.sound-mapping-hands-image {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+.sound-mapping-hands-explain {
+  font-size: 12px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.sound-mapping-finger-point {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #000;
+  font-weight: bolder;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sound-mapping-finger-point.mapped {
+  background-color: #4ECDC4;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.sound-mapping-finger-point.unmapped {
+  background-color: #FFA500;
+  border: 2px solid #fff;
+}
+
+.sound-mapping-finger-point.drag-over {
+  border: 4px dashed #4ECDC4;
+  background-color: #b7dfdc;
+}
+
+.sound-mapping-hand-drop-area {
+  position: absolute;
+  width: 40%;
+  height: 80%;
+  top: 10%;
+  border-radius: 16px;
+  cursor: pointer;
+  z-index: 5;
+  border: 2px dashed transparent;
+  background-color: #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sound-mapping-hand-drop-area.left {
+  left: 5%;
+}
+
+.sound-mapping-hand-drop-area.right {
+  right: 5%;
+}
+
+.sound-mapping-hand-drop-area.drag-over {
+  border: 4px dashed #614ecd;
+  background-color: #9e96cd;
+}
+
+/* 사운드 트리 아이템 스타일 */
+.sound-tree-item {
+  padding: 8px 12px;
+  margin: 2px 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box; /* padding 포함하여 폭 계산 */
+}
+
+.sound-tree-item.folder {
+  cursor: default;
+  color: #888;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+}
+
+.sound-tree-item.file {
+  cursor: grab;
+  color: #333;
+  font-weight: 500;
+}
+
+.sound-tree-item.file:hover {
+  background-color: #e6f3ff;
+}
+
+.sound-tree-item.folder:hover {
+  background-color: #f5f5f5;
+}
+
+.sound-tree-icon {
+  font-size: 16px;
+}
+
+.sound-tree-id {
+  font-size: 12px;
+  color: #666;
+  margin-left: auto;
+}

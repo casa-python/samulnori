@@ -1,0 +1,84 @@
+{
+  "name": "samulnori-front",
+  "version": "1.0.0",
+  "description": "AI 기반 사물놀이 앱 - 실시간 객체 인식과 사운드 매핑을 통한 인터랙티브 음악 체험",
+  "author": "북치고 코드치고 (SSAFY 13기 공통 A108팀)",
+  "main": "public/electron.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev:safe": "concurrently \"vite\" \"wait-on http://localhost:3000 && electron . --no-sandbox\"",
+    "build": "vite build && electron-builder --dir",
+    "start": "electron .",
+    "electron": "electron .",
+    "electron:safe": "electron . --no-sandbox",
+    "pack": "electron-builder",
+    "dist": "npm run build && electron-builder",
+    "build:exe": "node build.js",
+    "tailwind": "tailwindcss build src/index.css -o dist/output.css",
+    "cleanup": "taskkill /f /im python.exe 2>nul || echo No Python processes found"
+  },
+  "build": {
+    "asar": true,
+    "asarUnpack": [
+      "**/node_modules/ffmpeg-static/**",
+      "backend/**/*"
+    ],
+    "appId": "com.samulnori.app",
+    "files": [
+      "dist/**/*",
+      "public/**/*",
+      "node_modules/**/*"
+    ],
+    "productName": "Samulnori 2.0",
+    "directories": {
+      "output": "release"
+    },
+    "extraResources": [
+      {
+        "from": "../../backend",
+        "to": "backend"
+      },
+      {
+        "from": "../../venv",
+        "to": "venv"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+            "icon": "public/samulnori.png"
+    }
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^8.0.0",
+    "electron": "^37.2.4",
+    "electron-builder": "^24.0.0",
+    "postcss": "^8.5.6",
+
+    "tailwindcss": "^4.1.11",
+    "vite": "^7.0.6",
+    "wait-on": "^7.0.0"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "framer-motion": "^12.23.12",
+    "konva": "^9.3.22",
+    "python-shell": "^5.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-icon": "^1.0.0",
+    "react-icons": "^5.5.0",
+    "react-konva": "^19.0.7",
+    "react-router-dom": "^7.7.1",
+    "sweetalert2": "^11.22.3",
+    "ws": "^8.18.3",
+    "zustand": "^5.0.6"
+  }
+}

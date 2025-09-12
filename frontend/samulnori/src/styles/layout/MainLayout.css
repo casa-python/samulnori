@@ -1,0 +1,29 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #111827;
+  color: #ffffff;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.content-area {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content-row {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .main-layout {
+    height: 100vh;
+  }
+} 

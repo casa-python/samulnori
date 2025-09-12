@@ -1,0 +1,155 @@
+/* CompleteSettingComponent.css */
+.complete-setting-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: #111827;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+.complete-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  min-height: 60px;
+  background: #F9FAFB;
+}
+
+.complete-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Pretendard', sans-serif;
+  color: #111827;
+}
+
+.status-badge-green {
+  padding: 4px 8px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.status-badge-orange {
+  padding: 4px 8px;
+  background: rgba(247, 90, 55, 0.1);
+  color: #f75a37;
+  border: 1px solid rgba(247, 90, 55, 0.2);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.complete-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: visible; /* 스크롤 생성 방지 */
+  padding: 20px;
+  min-height: 0;
+  margin-bottom: 20px;
+}
+
+.complete-message {
+  text-align: center;
+  margin: 10px 0 16px 0;
+  padding: 16px;
+  background: #F9FAFB;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+}
+
+.complete-message h1{
+  font-size: 20px !important;
+  padding: 20px 0px;
+}
+
+.complete-hint {
+  color: #6B7280;
+  font-size: 14px;
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.reset-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reset-btn {
+  background: #ef4444;
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-btn:hover {
+  background: #dc2626;
+}
+
+.reconfigure-btn {
+  background: #38BDF8;
+  color: #fff !important;
+  border: none;
+}
+
+.reconfigure-btn:hover {
+  background: #0EA5E9;
+}
+
+/* 공통 버튼 영역 재사용 */
+.next-button-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  flex-shrink: 0;
+  background: #F9FAFB;
+}
+
+.loop-play-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: #F9FAFB;
+  padding: 12px 20px;
+}
+
+.loop-play-btn {
+  background: #38BDF8;
+  color: #fff !important;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.loop-play-btn:hover {
+  background: #0EA5E9;
+}
+

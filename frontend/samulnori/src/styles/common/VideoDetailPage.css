@@ -1,0 +1,134 @@
+.video-detail-container {
+  width: 100%;
+  max-width: none; /* 전체 화면 너비 사용 */
+  margin: 0 auto;
+  padding: 24px 16px;
+  /* background-color: #f9fafb; */
+  
+  color: black;
+  font-family: "Pretendard", sans-serif;
+}
+
+.video-player {
+  height: 75vh; /* 화면 높이의 75%로 고정 */
+  width: auto; /* 가로는 비율에 맞게 자동 조절 */
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: black; /* 검은 배경으로 여백 생겨도 자연스럽게 */
+}
+
+.video-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.uploader-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.upload-date {
+  font-size: 13px;
+  color: #555;
+}
+
+.video-desc {
+  font-size: 16px;
+  margin-top: 12px;
+  line-height: 1.6;
+  color: black;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.comment-section {
+  margin-top: 40px;
+}
+
+.comment-input textarea,
+.reply-input textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  resize: none;
+  margin-top: 6px;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comment-item,
+.reply-item {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.comment-body {
+  flex: 1;
+}
+
+button {
+  all: unset; /* 모든 브라우저 기본 스타일 제거 */
+  color: black !important;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 14px;
+  font-family: "Pretendard", sans-serif;
+  padding: 4px 8px;
+}
+
+/* 모바일 대응 */
+@media (max-width: 900px) {
+  .video-detail-container {
+    padding: 16px;
+  }
+
+  .profile-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .video-title {
+    font-size: 20px;
+  }
+
+  .video-desc {
+    font-size: 14px;
+  }
+}
+
+.comment-input textarea {
+  width: 100%;
+  padding: 8px;
+}
+
+.comment-list li {
+  margin-top: 20px;
+}
+
+.heart-icon {
+  font-size: 20px;
+  margin-right: 6px;
+  transition: color 0.2s;
+}
