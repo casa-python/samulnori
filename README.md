@@ -30,31 +30,31 @@
 -   **`FSR 센서 장갑`**: 센서 장갑의 압력을 감지하여 사물 터치 인식
 
 <p align="left">
-  <img src="./imgs/touch.png" width="100%">
+  <img src="./imgs/touch.png" width="60%">
 </p>
 
 ### 2. 루프 스테이션
 > 연주한 사운드를 실시간으로 녹음하고 여러 트랙의 루프를 중첩시켜 즉석에서 새로운 비트와 멜로디 구성 가능
 
 <p align="left">
-  <img src="./imgs/loop.png" width="100%">
+  <img src="./imgs/loop.png" width="60%">
 </p>
 
 ### 3. 커뮤니티 & 공유
 > 자신의 연주 영상을 업로드하고 공유하여 다른 사용자들의 작품을 감상하고 피드백을 주고받을 수 있는 소셜 기능
 
 <p align="left">
-  <img src="./imgs/sns.png" width="100%">
+  <img src="./imgs/sns.png" width="60%">
 </p>
 
 <br>
 
 ## 🏛️ 시스템 아키텍처 (System Architecture)
 
-본 프로젝트는 **성능과 기능 분리**를 위해 두 개의 독립적인 시스템으로 구성된 하이브리드 아키텍처 채택
+**성능과 기능 분리**를 위해 두 개의 독립적인 시스템으로 구성된 하이브리드 아키텍처 채택
 
 <p align="left">
-  <img src="./imgs/skills.png" width="100%">
+  <img src="./imgs/skills.png" width="60%">
 </p>
 
 ### 1. 로컬 실시간 처리 시스템 (Electron + Python)
